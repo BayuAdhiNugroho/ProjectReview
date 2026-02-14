@@ -1,0 +1,59 @@
+/* rs_pku_logo.css
+   Styles for the RS_PKU logo component placed in public/
+
+   Usage (example):
+   <div class="rs-pku-logo">
+     <div class="mark">PK</div>
+     <div class="text">
+       <div class="title">RS PKU</div>
+       <div class="subtitle">Pelayanan Kesehatan</div>
+     </div>
+   </div>
+*/
+
+.rs-pku-logo{
+  display:inline-flex;
+  align-items:center;
+  gap:0.75rem;
+  --logo-size:48px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:var(--color-foreground,#171717);
+}
+
+.rs-pku-logo .mark{
+  width:var(--logo-size);
+  height:var(--logo-size);
+  min-width:var(--logo-size);
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #fff;
+  font-weight:700;
+  font-size:1.05rem;
+  background: linear-gradient(135deg,#c026d3 0%, #ef4444 60%);
+  box-shadow:0 6px 12px rgba(2,6,23,0.12);
+}
+
+.rs-pku-logo .text{ display:flex; flex-direction:column; line-height:1; }
+.rs-pku-logo .text .title{ font-size:1rem; font-weight:700; }
+.rs-pku-logo .text .subtitle{ font-size:0.75rem; color:rgba(0,0,0,0.6); }
+
+/* Small variant */
+.rs-pku-logo--sm{ --logo-size:36px; gap:0.5rem; }
+.rs-pku-logo--sm .text .title{ font-size:0.9rem; }
+.rs-pku-logo--sm .text .subtitle{ font-size:0.7rem; }
+
+/* Circle mark variant */
+.rs-pku-logo--circle .mark{ border-radius:50%; }
+
+/* Inverse / light-on-dark support */
+@media (prefers-color-scheme: dark){
+  .rs-pku-logo{ color:var(--color-foreground,#ededed); }
+  .rs-pku-logo .mark{ box-shadow:0 6px 14px rgba(0,0,0,0.6); }
+  .rs-pku-logo .text .subtitle{ color:rgba(255,255,255,0.75); }
+}
+
+/* Utility helpers */
+.rs-pku-logo--stack{ flex-direction:column; align-items:flex-start; }
+.rs-pku-logo a{ text-decoration:none; color:inherit; }
